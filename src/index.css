@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #4244df;
+  --color-primary-container: #5d61f9;
+  --color-primary-fixed: #e1e0ff;
+  --color-primary-fixed-dim: #c0c1ff;
+  --color-on-primary: #ffffff;
+  --color-on-primary-fixed: #05006c;
+  --color-on-primary-fixed-variant: #2928ca;
+
+  --color-secondary: #4454bb;
+  --color-secondary-container: #8393fe;
+  --color-secondary-fixed: #dfe0ff;
+  --color-secondary-fixed-dim: #bbc3ff;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-fixed: #000e5f;
+  --color-on-secondary-fixed-variant: #2a3ba2;
+
+  --color-tertiary: #6e536f;
+  --color-tertiary-container: #886b88;
+  --color-tertiary-fixed: #fbd8f9;
+  --color-tertiary-fixed-dim: #debcdd;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-fixed: #29132c;
+  --color-on-tertiary-fixed-variant: #583e59;
+
+  --color-surface: #fcf8ff;
+  --color-surface-dim: #dad8ef;
+  --color-surface-bright: #fcf8ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f2ff;
+  --color-surface-container: #efecff;
+  --color-surface-container-high: #e8e6fe;
+  --color-surface-container-highest: #e3e0f8;
+  --color-surface-variant: #e3e0f8;
+
+  --color-on-surface: #1a1a2b;
+  --color-on-surface-variant: #454555;
+  --color-outline: #767587;
+  --color-outline-variant: #c6c4d8;
+  --color-inverse-surface: #2f2f41;
+  --color-inverse-on-surface: #f2efff;
+
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}

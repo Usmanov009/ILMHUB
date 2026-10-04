@@ -1,0 +1,6 @@
+{
+  "name": "Ilmhub Adaptive EdTech PWA",
+  "description": "Next-generation adaptive learning platform with automated missed-class catch-up, AI syllabus repetitor, electronic diary, and interactive physics simulations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
