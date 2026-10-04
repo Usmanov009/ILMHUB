@@ -1,4 +1,4 @@
-import { TimetableLesson, SubjectGrade, MitosisStage, CatchUpModule, UserProfile, Language, ChatMessage } from '../types';
+import { TimetableLesson, DayTimetable, SubjectGrade, MitosisStage, CatchUpModule, UserProfile, Language, ChatMessage } from '../types';
 
 export const INITIAL_USER: UserProfile = {
   name: 'Jasur',
@@ -306,6 +306,440 @@ export const TIMETABLE_THURSDAY: TimetableLesson[] = [
     homeworkTask: 'Student classini yaratish va init parametri'
   }
 ];
+
+export interface BellPeriod {
+  period: number;
+  time: string;
+  breakDuration: string;
+}
+
+export const BELL_SCHEDULE: BellPeriod[] = [
+  { period: 1, time: '08:30 - 09:15', breakDuration: '10 daqiqa tanaffus' },
+  { period: 2, time: '09:25 - 10:10', breakDuration: '10 daqiqa tanaffus' },
+  { period: 3, time: '10:20 - 11:05', breakDuration: '20 daqiqa (Katta tanaffus)' },
+  { period: 4, time: '11:25 - 12:10', breakDuration: '10 daqiqa tanaffus' },
+  { period: 5, time: '12:20 - 13:05', breakDuration: '10 daqiqa tanaffus' },
+  { period: 6, time: '13:15 - 14:00', breakDuration: 'Darslar yakuni' }
+];
+
+export const WEEKLY_TIMETABLES: Record<number, DayTimetable> = {
+  14: {
+    dayNum: 14,
+    dayNameUz: 'Dushanba',
+    dayNameRu: 'Понедельник',
+    dayNameEn: 'Monday',
+    dateStrUz: '14-Oktyabr, Dushanba',
+    dateStrRu: '14 Октября, Понедельник',
+    lessons: [
+      {
+        id: 'mo-1',
+        periodNumber: 1,
+        time: '08:30 - 09:15',
+        room: '102-xona',
+        subject: 'Ona tili',
+        teacher: 'N. Karimova',
+        topic: 'Murakkab qo\'shma gaplar tahlili va tinish belgilari',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        score: '100/100 ball',
+        homeworkSubmitted: true,
+        homeworkTask: '45-mashq: Matndan qo\'shma gaplarni ajratib yozish'
+      },
+      {
+        id: 'mo-2',
+        periodNumber: 2,
+        time: '09:25 - 10:10',
+        room: '102-xona',
+        subject: 'Adabiyot',
+        teacher: 'N. Karimova',
+        topic: 'Abdulla Qodiriy: "O\'tkan kunlar" romani g\'oyaviy tahlili',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        xp: 15,
+        homeworkSubmitted: true,
+        homeworkTask: 'Otabek va Kumush timsollariga qiyosiy tavsif'
+      },
+      {
+        id: 'mo-3',
+        periodNumber: 3,
+        time: '10:20 - 11:05',
+        room: '210-xona',
+        subject: 'Algebra',
+        teacher: 'A. Qodirov',
+        topic: 'Tenglamalar sistemasi va determinant (Kramer qoidasi)',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        xp: 20,
+        homeworkSubmitted: true,
+        homeworkTask: '56–58-misollar (Kramer qoidasi bilan yechish)'
+      },
+      {
+        id: 'mo-4',
+        periodNumber: 4,
+        time: '11:25 - 12:10',
+        room: '308-laboratoriya',
+        subject: 'Kimyo',
+        teacher: 'Z. Rahimova',
+        topic: 'Davriy qonun va atom tuzilishi qonuniyatlari',
+        status: 'completed',
+        grade: 4,
+        gradeLabel: 'Yaxshi',
+        homeworkSubmitted: true,
+        homeworkTask: '12-paragraf savollari va elektron konfiguratsiya'
+      },
+      {
+        id: 'mo-5',
+        periodNumber: 5,
+        time: '12:20 - 13:05',
+        room: 'Sport zal',
+        subject: 'Jismoniy tarbiya',
+        teacher: 'B. Nazarov',
+        topic: 'Voleybol: To\'pni uzatish va himoyada harakatlanish',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        homeworkSubmitted: true,
+        homeworkTask: 'Ertalabki badantarbiya mashqlari'
+      },
+      {
+        id: 'mo-6',
+        periodNumber: 6,
+        time: '13:15 - 14:00',
+        room: '105-xona',
+        subject: 'Huquq asoslari',
+        teacher: 'S. Boboyev',
+        topic: 'Inson huquqlari umumjahon deklaratsiyasi va konstitutsiya',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        homeworkSubmitted: true,
+        homeworkTask: 'Konstitutsiya moddalaridan konspekt tayyorlash'
+      }
+    ]
+  },
+  15: {
+    dayNum: 15,
+    dayNameUz: 'Seshanba',
+    dayNameRu: 'Вторник',
+    dayNameEn: 'Tuesday',
+    dateStrUz: '15-Oktyabr, Seshanba',
+    dateStrRu: '15 Октября, Вторник',
+    lessons: [
+      {
+        id: 'tu-1',
+        periodNumber: 1,
+        time: '08:30 - 09:15',
+        room: '210-xona',
+        subject: 'Geometriya',
+        teacher: 'A. Qodirov',
+        topic: 'Fazoviy jismlar: Prizma va piramida sirtining yuzi',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        score: '98/100 ball',
+        homeworkSubmitted: true,
+        homeworkTask: '89-teorema isboti va 4 ta masala'
+      },
+      {
+        id: 'tu-2',
+        periodNumber: 2,
+        time: '09:25 - 10:10',
+        room: '304-laboratoriya',
+        subject: 'Fizika',
+        teacher: 'D. Shavkatova',
+        topic: 'Elektromagnit to\'lqinlar shkalasi va tarqalish tezligi',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        xp: 20,
+        homeworkSubmitted: true,
+        homeworkTask: 'To\'lqin uzunligi va chastota formulalariga masalalar'
+      },
+      {
+        id: 'tu-3',
+        periodNumber: 3,
+        time: '10:20 - 11:05',
+        room: '402-lingafon',
+        subject: 'Ingliz tili (IELTS)',
+        teacher: 'J. Smith (CEFR B2+)',
+        topic: 'Academic Writing Task 2: Opinion Essay structure',
+        status: 'completed',
+        grade: 4,
+        gradeLabel: 'Yaxshi',
+        homeworkSubmitted: true,
+        homeworkTask: '250 so\'zli insho rejasi va kirish qismi'
+      },
+      {
+        id: 'tu-4',
+        periodNumber: 4,
+        time: '11:25 - 12:10',
+        room: '204-xona',
+        subject: 'Tarix',
+        teacher: 'T. Mahmudov',
+        topic: 'Temuriylar davri me\'morchiligi va madaniy yuksalish',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        homeworkSubmitted: true,
+        homeworkTask: 'Samarqand va Shahrisabz obidalari xaritasi'
+      },
+      {
+        id: 'tu-5',
+        periodNumber: 5,
+        time: '12:20 - 13:05',
+        room: '205-IT zal',
+        subject: 'Informatika',
+        teacher: 'O. Fayzullayev',
+        topic: 'Ma\'lumotlar bazasi va SQL: SELECT, WHERE, ORDER BY',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        xp: 15,
+        homeworkSubmitted: true,
+        homeworkTask: 'Maktab kutubxonasi jadvali uchun 5 ta SQL so\'rovi'
+      }
+    ]
+  },
+  16: {
+    dayNum: 16,
+    dayNameUz: 'Chorshanba',
+    dayNameRu: 'Среда',
+    dayNameEn: 'Wednesday',
+    dateStrUz: '16-Oktyabr, Chorshanba',
+    dateStrRu: '16 Октября, Среда',
+    lessons: [
+      {
+        id: 'we-1',
+        periodNumber: 1,
+        time: '08:30 - 09:15',
+        room: '210-xona',
+        subject: 'Algebra',
+        teacher: 'A. Qodirov',
+        topic: 'Logarifmik funksiyalar va ularning grafigi',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        score: '96/100 ball',
+        homeworkSubmitted: true,
+        homeworkTask: '110–114-misollar: logarifmik tenglamalar'
+      },
+      {
+        id: 'we-2',
+        periodNumber: 2,
+        time: '09:25 - 10:10',
+        room: '308-laboratoriya',
+        subject: 'Kimyo',
+        teacher: 'Z. Rahimova',
+        topic: 'Oksidlanish-qaytarilish reaksiyalari (OQR)',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        homeworkSubmitted: true,
+        homeworkTask: 'Elektron balans usuli bilan reaksiyalarni tenglashtirish'
+      },
+      {
+        id: 'we-3',
+        periodNumber: 3,
+        time: '10:20 - 11:05',
+        room: '202-xona',
+        subject: 'Rus tili',
+        teacher: 'E. Petrova',
+        topic: 'Синтаксический разбор сложноподчиненных предложений',
+        status: 'completed',
+        grade: 4,
+        gradeLabel: 'Yaxshi',
+        homeworkSubmitted: true,
+        homeworkTask: 'Упражнение 78 (списать и подчеркнуть основы)'
+      },
+      {
+        id: 'we-4',
+        periodNumber: 4,
+        time: '11:25 - 12:10',
+        room: '108-xona',
+        subject: 'Biologiya',
+        teacher: 'M. Karimova',
+        topic: 'Genetika asoslari: Mendelning I va II qonunlari',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        homeworkSubmitted: true,
+        homeworkTask: 'Monogibrid chatishtirishga doir 3 ta masala'
+      },
+      {
+        id: 'we-5',
+        periodNumber: 5,
+        time: '12:20 - 13:05',
+        room: '106-xona',
+        subject: 'Geografiya',
+        teacher: 'U. Alimov',
+        topic: 'Jahon iqtisodiyoti va xalqaro transport koridorlari',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        homeworkSubmitted: true,
+        homeworkTask: 'Kontur xaritaga yirik dengiz portlarini tushirish'
+      }
+    ]
+  },
+  17: {
+    dayNum: 17,
+    dayNameUz: 'Payshanba',
+    dayNameRu: 'Четверг',
+    dayNameEn: 'Thursday',
+    dateStrUz: '17-Oktyabr, Payshanba',
+    dateStrRu: '17 Октября, Четверг',
+    isToday: true,
+    lessons: TIMETABLE_THURSDAY
+  },
+  18: {
+    dayNum: 18,
+    dayNameUz: 'Juma',
+    dayNameRu: 'Пятница',
+    dayNameEn: 'Friday',
+    dateStrUz: '18-Oktyabr, Juma',
+    dateStrRu: '18 Октября, Пятница',
+    lessons: [
+      {
+        id: 'fr-1',
+        periodNumber: 1,
+        time: '08:30 - 09:15',
+        room: '102-xona',
+        subject: 'Adabiyot',
+        teacher: 'N. Karimova',
+        topic: 'Cho\'lpon she\'riyatida ozodlik va hurriyat timsollari',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        homeworkSubmitted: true,
+        homeworkTask: '"Go\'zal" she\'rini yoddan aytib berish'
+      },
+      {
+        id: 'fr-2',
+        periodNumber: 2,
+        time: '09:25 - 10:10',
+        room: '210-xona',
+        subject: 'Geometriya',
+        teacher: 'A. Qodirov',
+        topic: 'Fazoviy vektorlar va skalyar ko\'paytma',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        homeworkSubmitted: true,
+        homeworkTask: '140–142-masalalar'
+      },
+      {
+        id: 'fr-3',
+        periodNumber: 3,
+        time: '10:20 - 11:05',
+        room: '402-lingafon',
+        subject: 'Ingliz tili (IELTS)',
+        teacher: 'J. Smith (CEFR B2+)',
+        topic: 'Speaking Part 2 & 3: Education & Technology discussion',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        xp: 15,
+        homeworkSubmitted: true,
+        homeworkTask: '2 daqiqalik audioda monolog yozib yuborish'
+      },
+      {
+        id: 'fr-4',
+        periodNumber: 4,
+        time: '11:25 - 12:10',
+        room: '204-xona',
+        subject: 'O\'zbekiston tarixi',
+        teacher: 'T. Mahmudov',
+        topic: 'Jadidchilik harakati va yangi usul maktablari',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        homeworkSubmitted: true,
+        homeworkTask: 'Esse: "Jadidlar merosi va zamonaviy ta\'lim"'
+      },
+      {
+        id: 'fr-5',
+        periodNumber: 5,
+        time: '12:20 - 13:05',
+        room: '101-xona',
+        subject: 'Tarbiya soati',
+        teacher: 'D. Shavkatova',
+        topic: 'Kelajak kasblari va shaxsiy rivojlanish rejasi',
+        status: 'upcoming',
+        homeworkSubmitted: false,
+        homeworkTask: 'O\'z qiziqishlari bo\'yicha prezentatsiya'
+      }
+    ]
+  },
+  19: {
+    dayNum: 19,
+    dayNameUz: 'Shanba',
+    dayNameRu: 'Суббота',
+    dayNameEn: 'Saturday',
+    dateStrUz: '19-Oktyabr, Shanba',
+    dateStrRu: '19 Октября, Суббота',
+    lessons: [
+      {
+        id: 'sa-1',
+        periodNumber: 1,
+        time: '08:30 - 09:15',
+        room: '304-laboratoriya',
+        subject: 'Fizika (Olimpiada)',
+        teacher: 'D. Shavkatova',
+        topic: 'Nostandart murakkab masalalar yechish va simulyatsiyalar',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        xp: 30,
+        homeworkSubmitted: true,
+        homeworkTask: 'Respublika olimpiadasi saralash bosqichi 5 ta masalasi'
+      },
+      {
+        id: 'sa-2',
+        periodNumber: 2,
+        time: '09:25 - 10:10',
+        room: '205-IT zal',
+        subject: 'Informatika / Algoritmlar',
+        teacher: 'O. Fayzullayev',
+        topic: 'Dynamic Programming: Memoization va optimallashtirish',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        xp: 25,
+        homeworkSubmitted: true,
+        homeworkTask: 'LeetCode: Climbing Stairs & Coin Change yechimi'
+      },
+      {
+        id: 'sa-3',
+        periodNumber: 3,
+        time: '10:20 - 11:05',
+        room: 'Sport zal',
+        subject: 'Shaxmat / Mantiq',
+        teacher: 'B. Nazarov',
+        topic: 'Taktik zarbalar: Bog\'lanish, sanchqi va endshpil texnikasi',
+        status: 'completed',
+        grade: 5,
+        gradeLabel: "A'lo",
+        homeworkSubmitted: true,
+        homeworkTask: 'Lichess platformasida 10 ta taktik masala yechish'
+      },
+      {
+        id: 'sa-4',
+        periodNumber: 4,
+        time: '11:25 - 12:10',
+        room: '101-xona',
+        subject: 'Sinf soati',
+        teacher: 'D. Shavkatova',
+        topic: 'Haftalik o\'quv yakunlari va rag\'batlantirish',
+        status: 'upcoming',
+        homeworkSubmitted: false,
+        homeworkTask: 'Keyingi hafta maqsadlarini belgilash'
+      }
+    ]
+  }
+};
 
 export const SUBJECTS_JOURNAL: SubjectGrade[] = [
   {

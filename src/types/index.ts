@@ -34,6 +34,17 @@ export interface TimetableLesson {
   homeworkTask?: string;
 }
 
+export interface DayTimetable {
+  dayNum: number;
+  dayNameUz: string;
+  dayNameRu: string;
+  dayNameEn: string;
+  dateStrUz: string;
+  dateStrRu: string;
+  isToday?: boolean;
+  lessons: TimetableLesson[];
+}
+
 export interface ChatMessage {
   id: string;
   sender: 'ai' | 'student' | 'teacher';
